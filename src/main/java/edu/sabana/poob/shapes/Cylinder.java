@@ -21,11 +21,11 @@ public class Cylinder extends Circle implements GeometricShape3D {
 
     @Override
     public double getVolume() {
-        return 0;
+        return Math.PI*this.radius*this.radius*this.height;
     }
 
     @Override
     public double getSuperficialArea() {
-        return 0;
+        return 2*Math.PI*this.radius+2*Math.PI*this.height;
     }
 }

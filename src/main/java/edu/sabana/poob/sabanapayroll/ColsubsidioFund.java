@@ -21,21 +21,35 @@ public class ColsubsidioFund implements IFamilyCompensationFund {
      */
     @Override
     public boolean registerEmployee(Employee employee) {
-        return false;
+        if(employee.getClass()==EmployeeByCommission.class){
+            return false;
+        }
+        else if(isEmployeeRegistered(employee.getId())){
+            return false;
+        }
+        else{
+            registeredEmployees.put(employee.getId(), employee);
+            return true;
+        }
     }
 
     @Override
     public boolean deleteEmployee(UUID id) {
-        return false;
+        if(registeredEmployees.containsKey(id)){
+            registeredEmployees.remove(id);
+            return true;
+        }
+        else
+            return false;
     }
 
     @Override
     public boolean isEmployeeRegistered(UUID id) {
-        return false;
+        return registeredEmployees.containsKey(id);
     }
 
     @Override
     public String printBenefits() {
-        return null;
+        return ":v";
     }
 }

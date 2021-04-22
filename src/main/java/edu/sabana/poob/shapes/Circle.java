@@ -6,7 +6,7 @@ package edu.sabana.poob.shapes;
  */
 public class Circle extends Shape implements GeometricShape2D {
 
-    private double radius;
+    protected double radius;
 
     public Circle() {
         this.radius = 1.0;
@@ -22,16 +22,16 @@ public class Circle extends Shape implements GeometricShape2D {
     }
 
     public double getDiameter() {
-        return 0;
+        return this.radius*2;
     }
 
     @Override
     public double getArea() {
-        return 0;
+        return Math.PI*this.radius*this.radius;
     }
 
     @Override
     public double getPerimeter() {
-        return 0;
+        return 2*Math.PI*this.radius;
     }
 }
